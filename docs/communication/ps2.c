@@ -6,29 +6,29 @@
 #include "PS2ins.h"
 void PS2_CS(uint8_t choose)
 {
-	mygpioout(0,4,choose);
+	mygpioout(0,1,choose);
 }
 void PS2_CK(uint8_t edge)
 {
-	mygpioout(0,5,edge);
+	mygpioout(0,0,edge);
 }
 void PS2_DO(uint8_t bit)//jie DI
 {
-	mygpioout(0,7,bit);
+	mygpioout(0,2,bit);
 }
 uint8_t PS2_DI(void)
 {
-	return(GPIO_ReadInputDataBit(GPIOA,GPIO_Pin_6));
+	return(GPIO_ReadInputDataBit(GPIOA,GPIO_Pin_3));
 }
 
 void PS2_init(void)
 {
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_SPI1, ENABLE);
 	
-	mygpiosetinit(0,7,5);
-	mygpiosetinit(0,5,5);
-	mygpiosetinit(0,6,3);
-	mygpiosetinit(0,4,5);
+	mygpiosetinit(0,0,5);
+	mygpiosetinit(0,1,5);
+	mygpiosetinit(0,3,3);
+	mygpiosetinit(0,2,5);
 	
 	PS2_CS(1);
 	PS2_CK(1);
@@ -170,3 +170,4 @@ void get_PS2_joystick(PS2Joystick_struct* PS2joystick,PS2data_struct* PS2data)
 		PS2joystick->L_y_speed=PS2_Joystick_y_mid-PS2data->data7;
 	}
 }
+
