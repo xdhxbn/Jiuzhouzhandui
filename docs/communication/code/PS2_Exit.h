@@ -1,6 +1,6 @@
 #ifndef __PS2_Exit_H
 #define __PS2_Exit_H
-/*请在外部定义PS2这一变量*/
+/*脟毛脭脷脥芒虏驴露篓脪氓PS2脮芒脪禄卤盲脕驴*/
 #include "ps2.h"
 
 void PS2_Exit_Init(void);
